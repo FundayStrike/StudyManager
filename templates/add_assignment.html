@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyManager</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}"/>
+</head>
+<body>
+    <div class="input-container">
+        <a href="{{url_for('home')}}">&lt; Back to home</a>
+        <h2 style="text-align: center;">Create assignment</h2>
+        <form method="post">
+            <div class="input-box">
+                <label for="subject">Subject:</label>
+                <input type="text" name="subject"/>
+                <input type="color" name="color" id="color" style="position: absolute;"/>
+            </div>
+            <div class="input-box">
+                <label for="assignment">Assignment:</label>
+                <input type="text" name="assignment"/>
+            </div>
+            <div class="input-box">
+                <label for="assignment_desc">Add description (optional):</label><br>
+                <input type="text" name="assignment_desc" id="desc-box"/>
+            </div>
+            <div class="input-box">
+                <label for="due_date">Due date:</label>
+                <input type="text" name="due_date" placeholder="DD/MM/YYYY"/>
+            </div>
+            <div class="submit">
+                <input type="submit" value="Create"/>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyManager</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}"/>
+</head>
+<body>
+    <div class="input-container">
+        <a href="{{url_for('login')}}">&lt; Back to login page</a>
+        <h1>StudyManager</h1>
+        <h3>Create an account</h3>
+        <form method="post">
+            <div class="input-box">
+                <b></b><label for="username">Username</label><br>
+                <input type="text" name="username"/><br>
+            </div>
+            <div class="input-box">
+                <label for="password">Password</label><br>
+                <input type="password" name="password"/><br>
+            </div>
+            <div class="submit">
+                <input type="submit" style="margin-top: 5px;" value="Create Account"/>
+            </div>
+        </form><br>
+        {% if error %}
+            <p style="text-align: center; color: red;">{{error}}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

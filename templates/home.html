@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyManager</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}"/>
+</head>
+<body>
+    <h1>StudyManager</h1>
+    <form method="post">
+        <p>
+            You are logged in as {{username}}
+            <input type="submit" name="logout" value="Logout"/>
+        </p>
+    </form><br>
+    <div id="homework-container">
+        <p>Here are your upcoming school assignments:</p>
+        {% for assignment in assignment_list %}
+            <div class="assignment-box">
+                <form method="post">
+                    <button type="submit" name="remove-assignment" class="remove-button" value="{{assignment[0]}}">x</button>
+                </form>
+                <div class="subject-color" style="background-color: {{assignment[2]}};"></div>
+                <div class="subject-container">
+                    <u>{{assignment[1]}}</u>
+                </div>
+                <b>{{assignment[3]}}</b><br>
+                {% if assignment[4] != '' %}
+                    {{assignment[4]}}<br>
+                {% endif %}
+                Due by: {{assignment[5]}}<br>
+            </div>
+        {% endfor %}
+        <form method="post">
+            <input type="submit" style="margin-bottom: 5px" value="Add a new assignment"/>
+        </form>
+    </div>
+</body>
+</html>
